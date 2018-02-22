@@ -1,0 +1,21 @@
+{# base.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %} {{ app_name }} {% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="navbar">
+            {% include 'partials/navigation.html.twig' %}
+        </div>
+
+        <div class="container">
+            {% include 'partials/flash.html.twig' %}
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

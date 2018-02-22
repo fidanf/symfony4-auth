@@ -1,0 +1,13 @@
+Done:
+composer require server debug-pack
+composer require twig
+composer require doctrine maker orm annotations form validator
+composer require mailer
+composer require security
+composer require --dev doctrine/doctrine-fixtures-bundle
+
+Front-end:
+ npm install @symfony/webpack-encore --save-dev
+ou
+ composer require encore
+ yarn install

@@ -1,0 +1,35 @@
+security:
+    encoders:
+        App\Entity\User: bcrypt
+
+    providers:
+        database_users:
+            entity: { class: App\Entity\User, property: email }
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous: true
+
+            form_login:
+                check_path: security_login
+                login_path: security_login
+
+                csrf_token_generator: security.csrf.token_manager
+                default_target_path: index
+
+            logout:
+                path: security_logout
+                target: index
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+    access_control:
+        - { path: '^/login', roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: '^/admin', roles: ROLE_ADMIN }
