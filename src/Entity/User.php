@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="user")
  * @UniqueEntity(fields="email", message="This email is already taken.")
  * @UniqueEntity(fields="username", message="This username is already taken.")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User implements UserInterface, \Serializable
 {
@@ -63,6 +64,19 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
+    /**
+     * @var \Datetime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $last_login;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
 
     public function getId(): int
     {
@@ -143,5 +157,33 @@ class User implements UserInterface, \Serializable
     public function unserialize($serialized): void
     {
         [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    public function getLastLogin()
+    {
+        return $this->last_login;
+    }
+
+    public function setLastLogin($last_login): void
+    {
+        $this->last_login = $last_login;
+    }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTime $created_at = null): void
+    {
+        $this->created_at = $created_at;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created_at = (new \DateTime)->getTimestamp();
     }
 }

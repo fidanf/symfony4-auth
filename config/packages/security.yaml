@@ -21,7 +21,7 @@ security:
 
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path: index
-
+                success_handler: app.authentication_success_handler
             logout:
                 path: security_logout
                 target: index
