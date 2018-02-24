@@ -184,6 +184,6 @@ class User implements UserInterface, \Serializable
      */
     public function onPrePersist()
     {
-        $this->created_at = (new \DateTime)->getTimestamp();
+        $this->created_at = new \DateTime();
     }
 }
