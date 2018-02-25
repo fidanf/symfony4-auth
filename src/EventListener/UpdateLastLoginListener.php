@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 
-class LastLoginListener implements AuthenticationSuccessHandlerInterface
+class UpdateLastLoginListener implements AuthenticationSuccessHandlerInterface
 {
     private $em;
 
