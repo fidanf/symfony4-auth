@@ -8,7 +8,7 @@ security:
 
     firewalls:
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            pattern: ^/(_(profiler|wdt)|build|images|js)/
             security: false
 
         main:
@@ -32,4 +32,4 @@ security:
                 path:     /
     access_control:
         - { path: '^/login', roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: '^/admin', roles: ROLE_ADMIN }
+        - { path: '^/profile', roles: IS_AUTHENTICATED_FULLY }

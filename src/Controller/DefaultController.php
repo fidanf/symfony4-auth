@@ -4,9 +4,6 @@ namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\Authentication\Token\AnonymousToken;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class DefaultController extends Controller {
 
@@ -19,10 +16,10 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/profile", name="user_profile")
      */
-    public function admin()
+    public function profile()
     {
-        return $this->render('Admin/index.html.twig');
+        return $this->render('user/profile.html.twig');
     }
 }

@@ -4,15 +4,21 @@
 {% block body %}
     <h1>Page not found</h1>
 
-    <p>
-        The requested page couldn't be located. Checkout for any URL
-        misspelling or <a href="{{ path('index') }}">return to the homepage</a>.
-        <p>Redirection in 5 seconds...</p>
-    </p>
+    <div class="row">
+        <div class="col-md-12 center-block">
+            The requested page couldn't be located. Checkout for any URL
+            misspelling or <a href="{{ path('index') }}">return to the homepage</a>.
+            <p>Redirection in 5 seconds...</p>
+        </div>
+    </div>
+{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
     <script>
-        window.setTimeout(function() {
-            window.location.replace('http://localhost:8000')
+        var indexUrl = {{ path('index') }}
+        window.setTimeout(()  => {
+            window.location.replace(indexUrl)
         }, 5000)
     </script>
 {% endblock %}

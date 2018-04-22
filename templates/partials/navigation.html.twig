@@ -21,6 +21,7 @@
                            Welcome {{ app.user.username }} <span class="caret"></span>
                         </a>
                         <ul id="navbar" class="dropdown-menu">
+                            <li><a href="{{ path('user_profile') }}"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
                             <li><a href="{{ path('security_logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
                         </ul>
                     </li>

@@ -28,14 +28,6 @@ class User implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank()
-     */
-    private $fullName;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(type="string", unique=true)
      * @Assert\NotBlank()
      */

@@ -1,5 +1,16 @@
-Proof of concept 
+# Symfony 4 Auth
 
-Symfony 4 authentication (without FOSUserBundle)
+This project is a "proof of concept" to demonstrate how to build an authentication system with Symfony 4 using no dependencies (such as FOSUserBundle).
+
+It covers the following features :
+
+- User registration, automatically logging the user and redirects him to home page
+- User login with email
+- Remember me option available on the login form
+- Automatically sets up user's created_at timestamp upon registration using Doctrine Lifecycle events
+- Listener to prevent the user to go back to anonymous pages when logged in
+- Listener to automatically update user's last login timestamp upon every successfull authentication
+- Assets management with [@symfony/webpack-encore](https://symfony.com/doc/current/frontend.html) 
+
 
 

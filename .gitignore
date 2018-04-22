@@ -15,4 +15,8 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 .idea/
-/node_modules
+###> symfony/webpack-encore-pack ###
+/node_modules/
+/%PUBLIC_DIR%/build/
+npm-debug.log
+###< symfony/webpack-encore-pack ###
