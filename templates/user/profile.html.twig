@@ -4,6 +4,9 @@
 {% block title %} Profile | {{ app.user.username }} {% endblock %}
 
 {% block body %}
-    <h1>Profile</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo fugiat nam aut blanditiis, error accusantium maxime tenetur voluptates ea temporibus.</p>
+    <h1>Profile : </h1>
+    <p>Username : {{ app.user.username }}</p>
+    <p>Email : {{ app.user.email }}</p>
+    <p>Registered on : {{ app.user.createdAt|date('Y-m-d - H:m') }}</p>
+    <p>Last login : {{ app.user.lastLogin|date('Y-m-d - H:m') }}</p>
 {% endblock %}
