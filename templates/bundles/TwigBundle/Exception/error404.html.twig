@@ -14,11 +14,10 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
     <script>
-        var indexUrl = {{ path('index') }}
+        var indexUrl = '{{ url('index') }}'
         window.setTimeout(()  => {
-            window.location.replace(indexUrl)
+           location.assign(indexUrl)
         }, 5000)
     </script>
 {% endblock %}
