@@ -27,7 +27,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => User::class,
-//            'attr' => array('novalidate' => 'novalidate')
+            'attr' => array('novalidate' => 'novalidate', 'class' => 'form-horizontal')
         ));
     }
 }
