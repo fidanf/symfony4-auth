@@ -12,5 +12,9 @@ It covers the following features :
 - Listener to automatically update user's last login timestamp upon every successfull authentication
 - Assets management with [@symfony/webpack-encore](https://symfony.com/doc/current/frontend.html) 
 
+### Live demo
+
+<https://symfony4-auth.frank-fidanza.fr/>
+
 
 
