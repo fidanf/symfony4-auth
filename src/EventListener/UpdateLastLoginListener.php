@@ -14,9 +14,12 @@ class UpdateLastLoginListener implements AuthenticationSuccessHandlerInterface
 {
     private $em;
 
-    public function __construct(EntityManagerInterface $em)
+    private $r;
+
+    public function __construct(EntityManagerInterface $em, RouterInterface $r)
     {
         $this->em = $em;
+        $this->r = $r;
     }
 
     public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
@@ -33,6 +36,6 @@ class UpdateLastLoginListener implements AuthenticationSuccessHandlerInterface
         $this->em->persist($user);
         $this->em->flush();
 
-        return new RedirectResponse($request->headers->get('referer'));
+        return new RedirectResponse($request->headers->get('referer') ?? $this->router->generate('index'));
     }
 }

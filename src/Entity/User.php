@@ -138,7 +138,7 @@ class User implements UserInterface, \Serializable
 
     public function eraseCredentials(): void
     {
-        // $this->plainPassword = null;
+        //
     }
 
     public function serialize(): string

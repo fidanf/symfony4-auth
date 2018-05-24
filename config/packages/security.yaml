@@ -4,7 +4,7 @@ security:
 
     providers:
         database_users:
-            entity: { class: App\Entity\User, property: email }
+            entity: { class: App\Entity\User }
 
     firewalls:
         dev:
@@ -18,10 +18,11 @@ security:
             form_login:
                 check_path: security_login
                 login_path: security_login
-
+                remember_me: true
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path: index
                 success_handler: app.authentication_success_handler
+                
             logout:
                 path: security_logout
                 target: index
@@ -30,6 +31,10 @@ security:
                 secret:   '%kernel.secret%'
                 lifetime: 604800 # 1 week in seconds
                 path:     /
+                always_remember_me: true
+                remember_me_parameter: _remember_me
+                domain: ~
+
     access_control:
         - { path: '^/login', roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: '^/profile', roles: IS_AUTHENTICATED_FULLY }
+        - { path: '^/profile', roles: [IS_AUTHENTICATED_FULLY, IS_AUTHENTICATED_REMEMBERED] }
