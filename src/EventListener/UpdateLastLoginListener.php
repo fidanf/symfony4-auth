@@ -6,6 +6,7 @@ namespace App\EventListener;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
@@ -36,6 +37,6 @@ class UpdateLastLoginListener implements AuthenticationSuccessHandlerInterface
         $this->em->persist($user);
         $this->em->flush();
 
-        return new RedirectResponse($request->headers->get('referer') ?? $this->router->generate('index'));
+        return new RedirectResponse($request->headers->get('referer') ?? $this->r->generate('index'));
     }
 }
