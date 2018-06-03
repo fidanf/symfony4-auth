@@ -37,6 +37,9 @@ class UpdateLastLoginListener implements AuthenticationSuccessHandlerInterface
         $this->em->persist($user);
         $this->em->flush();
 
-        return new RedirectResponse($request->headers->get('referer') ?? $this->r->generate('index'));
+        return new RedirectResponse(
+            $request->getSession()->get('_security.main.target_path') ??
+            $this->r->generate('index')
+        );
     }
 }

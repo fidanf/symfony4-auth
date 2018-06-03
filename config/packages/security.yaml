@@ -21,6 +21,7 @@ security:
                 remember_me: true
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path: index
+                # use_referer: true # Redirection to 'target_path' is being managed inside the success handler Listener below
                 success_handler: app.authentication_success_handler
                 
             logout:
