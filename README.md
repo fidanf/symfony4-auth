@@ -9,8 +9,23 @@ It covers the following features :
 - Remember me option available on the login form
 - Automatically sets up the user's created_at timestamp upon registration using Doctrine Lifecycle events
 - Listener to prevent the user to go back to anonymous pages when logged in
-- Listener to automatically update user's last login timestamp upon every successfull authentication
+- Listener to automatically update user's last login timestamp upon every successful authentication
 - Assets management with [@symfony/webpack-encore](https://symfony.com/doc/current/frontend.html) 
+
+## Setting up
+
+Install dependencies
+
+```bash
+composer install
+npm install # or yarn install
+npm run dev
+```
+
+Generate database schema
+```bash
+php bin/console doctrine:migrations:migrate
+```
 
 ### Live demo
 
