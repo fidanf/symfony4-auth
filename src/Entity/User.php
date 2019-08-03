@@ -7,6 +7,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use DateTime;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="user")
@@ -58,14 +60,14 @@ class User implements UserInterface, \Serializable
     private $roles = [];
 
     /**
-     * @var \Datetime
+     * @var Datetime
      *
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $last_login;
 
     /**
-     * @var \DateTime
+     * @var Datetime
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $created_at;
@@ -161,12 +163,12 @@ class User implements UserInterface, \Serializable
         $this->last_login = $last_login;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): Datetime
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTime $created_at = null): void
+    public function setCreatedAt(Datetime $created_at = null): void
     {
         $this->created_at = $created_at;
     }
@@ -176,6 +178,6 @@ class User implements UserInterface, \Serializable
      */
     public function onPrePersist()
     {
-        $this->created_at = new \DateTime();
+        $this->created_at = new Datetime();
     }
 }
