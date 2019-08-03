@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "symfony4-auth",
+    "description": "Registration and authentication example project with Symfony 4.3",
     "license": "proprietary",
     "keywords": ["symfony4", "authentication", "registration"],
     "require": {
