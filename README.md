@@ -12,6 +12,10 @@ It covers the following features :
 - Listener to automatically update user's last login timestamp upon every successful authentication
 - Assets management with [@symfony/webpack-encore](https://symfony.com/doc/current/frontend.html) 
 
+## Requirements 
+
+PHP 7.2 or newer (libsodium support is required for the 'sodium' encoder in security.yaml)
+
 ## Setting up
 
 Install dependencies
