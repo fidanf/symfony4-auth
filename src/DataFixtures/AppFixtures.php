@@ -1,13 +1,16 @@
 <?php 
 
 namespace App\DataFixtures;
+
 use App\Entity\User;
+
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 use Faker\Generator;
 use Faker\Provider\en_US\Person;
 use Faker\Provider\Internet;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
