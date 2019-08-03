@@ -1,7 +1,7 @@
 {
     "type": "project",
     "license": "proprietary",
-    "keywords": ["symfony4", "authentication"],
+    "keywords": ["symfony4", "authentication", "registration"],
     "require": {
         "php": "^7.2.2",
         "sensio/framework-extra-bundle": "^5.1",
