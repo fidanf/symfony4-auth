@@ -13,5 +13,6 @@ before_install:
   - php bin/phpunit install
 
 script:
-  - php bin/console lint:twig templates -e prod
+  - php bin/console lint:yaml config/
+  - php bin/console lint:twig templates/ -e prod
   - php bin/phpunit
