@@ -6,7 +6,9 @@ use App\Form\UserType;
 use App\Entity\User;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
@@ -19,7 +21,7 @@ class RegistrationController extends AbstractController
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param TokenStorageInterface $tokenStorage
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return RedirectResponse|Response
      */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, TokenStorageInterface $tokenStorage)
     {
@@ -38,7 +40,6 @@ class RegistrationController extends AbstractController
             $em->flush();
 
             $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
-//            $this->container->get('security.token_storage')->setToken($token);
             $tokenStorage->setToken($token);
 
             $this->addFlash('success', 'You have been successfully registered! Congratulations');
