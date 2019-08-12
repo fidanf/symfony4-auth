@@ -16,7 +16,7 @@ It covers the following features :
 
 ## Requirements 
 
-PHP 7.2 or newer (libsodium support is required for the 'sodium' encoder in security.yaml)
+- PHP >=7.3
 
 ## Setting up
 
