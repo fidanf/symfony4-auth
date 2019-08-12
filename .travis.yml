@@ -13,5 +13,4 @@ before_install:
 
 script:
   - php bin/console lint:twig templates -e prod
-  - php bin/console security:check
   - php bin/phpunit
