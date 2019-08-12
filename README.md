@@ -1,5 +1,7 @@
 # Symfony 4 Auth
 
+[![Build Status](https://travis-ci.com/fidanf/symfony4-auth.svg?branch=master)](https://travis-ci.com/fidanf/symfony4-auth)
+
 This project is a "proof of concept" to demonstrate how to build an authentication system with Symfony 4 using no dependencies (such as FOSUserBundle).
 
 It covers the following features :
