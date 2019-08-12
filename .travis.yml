@@ -1,0 +1,18 @@
+language: php
+sudo: false
+version: '7.3'
+
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+        - ./bin/.phpunit
+
+before_install:
+  - composer self-update
+  - composer install
+  - php bin/phpunit install
+
+script:
+  - php bin/console lint:twig templates -e prod
+  - php bin/console security:check
+  - php bin/phpunit
